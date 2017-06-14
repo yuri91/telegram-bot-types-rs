@@ -1,12 +1,12 @@
 [package]
 authors = ["Yuri Iozzelli <y.iozzelli@gmail.com>"]
 name = "telegram-bot-types"
-version = "0.1.0"
 description = "Useful types for interacting with the Telegram Bot API"
 documentation = "https://docs.rs/telegram-bot-types"
 keywords = ["telegram","bot","api"]
 license = "MIT OR Apache-2.0"
-repository = "https://github.com/yuri91/telegram-bot-types"
+repository = "https://github.com/yuri91/telegram-bot-types-rs"
+version = "0.1.1"
 
 [dependencies]
 serde = "1.0"
