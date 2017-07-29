@@ -11,7 +11,7 @@ pub struct InlineQuery {
     pub id: String,
     pub from: User,
     pub query: String,
-    pub offset: i64,
+    pub offset: String,
 }
 #[derive(Clone, Debug, Deserialize)]
 pub struct User {
