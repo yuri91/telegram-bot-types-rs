@@ -1,4 +1,5 @@
 use std::default::Default;
+use super::serde::ser::Serialize;
 
 #[derive(Clone, Debug, PartialEq, Eq, Serialize)]
 pub enum ParseMode {
@@ -39,21 +40,21 @@ impl Message {
 }
 
 #[derive(Clone, Debug, Serialize, Default)]
-pub struct AnswerInlineQuery {
+pub struct AnswerInlineQuery<InlineQueryResultType: Serialize + Default> {
     pub inline_query_id: String,
-    pub results: Vec<InlineQueryResult>,
+    pub results: Vec<InlineQueryResultType>,
     pub cache_time: Option<i64>,
     pub is_personal: Option<bool>,
     pub next_offset: String,
     pub switch_pm_text: Option<String>,
     pub switch_pm_parameter: Option<String>,
 }
-impl AnswerInlineQuery {
+impl<InlineQueryResultType: Serialize + Default> AnswerInlineQuery<InlineQueryResultType> {
     pub fn new(
         inline_query_id: String,
-        results: Vec<InlineQueryResult>,
+        results: Vec<InlineQueryResultType>,
         next_offset: String,
-    ) -> AnswerInlineQuery {
+    ) -> AnswerInlineQuery<InlineQueryResultType> {
         AnswerInlineQuery {
             inline_query_id,
             results,
